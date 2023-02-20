@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import {
     Menu,
@@ -9,38 +8,51 @@ import {
     Flex,
     Spacer,
     Box,
-  } from '@chakra-ui/react';
+} from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
 const NavBar = () => {
   return (
-    <Box>
+    <Box className='navbar'>
         <Flex className='nav-container'>
-            <Box>
-                <h1>Samsung</h1>
+            <Box className='nav-box logo'>
+                <Link to='/'>Samsung</Link>
             </Box>
-                
             <Spacer />
-            <Box>
+            <Box className='nav-box nav-menu'>
                 <Menu>
-                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                        Smartphone
+                    <MenuButton className='menu-btn' as={Button} rightIcon={<ChevronDownIcon />}>
+                        Categorias
                     </MenuButton>
                     <MenuList>
-                        <MenuItem className='item-text'>Smartphone</MenuItem>
-                        <MenuItem className='item-text'>Tablet</MenuItem>
-                        <MenuItem className='item-text'>Watches</MenuItem>
-                        <MenuItem className='item-text'>Accesorios</MenuItem>
+                        <Link to={`/catalogo`}>
+                            <MenuItem className='item-text'>Todo</MenuItem>
+                        </Link>
+                        <Link to={`/category/${"smartphone"}`}>
+                            <MenuItem className='item-text'>Smartphone</MenuItem>
+                        </Link>
+                        <Link to={`/category/${"tablet"}`}>
+                            <MenuItem className='item-text'>Tablet</MenuItem>
+                        </Link>
+                        <Link to={`/category/${"watches"}`}>
+                            <MenuItem className='item-text'>Watches</MenuItem>
+                        </Link>
+                        <Link to={`/category/${"accesorios"}`}>
+                            <MenuItem className='item-text'>Accesorios</MenuItem>
+                        </Link>
                     </MenuList>
                 </Menu>
             </Box>
             <Spacer />
-            <Box>
-                <CartWidget />
+            <Box className='nav-box'>
+                <Link to='/cart'>
+                    <CartWidget />
+                </Link>
             </Box>
         </Flex>
     </Box>
   )
-}
+};
 
-export default NavBar
+export default NavBar;
