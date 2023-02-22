@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "image": "/public/smartphone_3.png",
+    "image": "/smartphone_3.png",
     "name": "Galaxy Z Fold4 5G",
     "description": "esto es un producto",
     "price": 521999,
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "image": "/public/smartphone_4.png",
+    "image": "/smartphone_4.png",
     "name": "Galaxy A53 5G",
     "description": "esto es un producto",
     "price": 163999,
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "image": "/public/tablet_1.png",
+    "image": "/tablet_1.png",
     "name": "Galaxy Tab S6 Lite",
     "description": "esto es un producto",
     "price": 81666,
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "image": "/public/tablet_2.png",
+    "image": "/tablet_2.png",
     "name": "Galaxy Tab S8 Ultra",
     "description": "esto es un producto",
     "price": 99999,
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "image": "/public/accesorio_1.png",
+    "image": "/accesorio_1.png",
     "name": "Cubierta Galaxy S23",
     "description": "esto es un producto",
     "price": 5050,
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "image": "/public/watches_1.png",
+    "image": "/watches_1.png",
     "name": "Galaxy Watch 4",
     "description": "esto es un producto",
     "price": 25100,

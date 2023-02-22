@@ -1,14 +1,14 @@
 # E-commerce
 
-Este proyecto es el proyecto final para el curso de react de coderhouse. Es una tienda virtual en donde se pueden comprar distintos dispositivos de samsung.
+Este es el proyecto final para el curso de react de coderhouse. Es una tienda virtual en donde se pueden comprar distintos dispositivos de Samsung.
 
 ---
 
-El funcionamiento es sencillo, podes observar un catalogo de disposivos en el que al pulsar en el boton **Ver Más** te lleva a ver una descripcion mas detallada del dispositivo.
+El funcionamiento es sencillo, podes observar un catalogo de disposivos en el que al pulsar en el boton **Ver Más** te lleva a ver una descripcion mas detallada del dispositivo. Tambien es posible filtrar por distintas categorias y acceder al carrito desde el `NavBar`
 
 ---
 
-> Pasos a seguir
+## Pasos a seguir
 
 1. [ x ] Crear un componente `NavBar`
 
@@ -21,3 +21,8 @@ El funcionamiento es sencillo, podes observar un catalogo de disposivos en el qu
 5. [ x ] Dentro de el, uno llamado `ItemList` que a su vez haga un `map` de cada `Item` colocado en `data.json`
 
 6. [ x ] Agregar navegacion basica en cada uno de los botones, menus y logos
+
+---
+## Gif Funcionamiento del e-commerce
+
+![](./src/assets/funcionamiento-ecommerce.gif)
