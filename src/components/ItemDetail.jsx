@@ -2,7 +2,6 @@ import React from 'react'
 import ItemCount from './ItemCount'
 import { 
   Card,
-  Stack,
   CardBody,
   Image,
   Heading,

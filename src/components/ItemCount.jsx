@@ -7,20 +7,19 @@ import {
 const ItemCount = ({ stock }) => {
 
     const toast = useToast()
-
-    const [contador, setContador] = useState(0);
+    const [contador, setContador] = useState(1);
 
     const sumar = () => {
         contador == stock ? setContador(stock) : setContador(contador + 1);
     };
 
     const resta = () => {
-        contador == 0 ? setContador(0) : setContador(contador - 1);
+        contador == 1 ? setContador(1) : setContador(contador - 1);
     };
 
     const reset = () => {
-        if (contador != 0) {
-            setContador(0);
+        if (contador != 1) {
+            setContador(1);
             toast({
                 title: 'Se restablecio con exito',
                 status: 'success',

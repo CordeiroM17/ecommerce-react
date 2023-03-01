@@ -11,6 +11,7 @@ const ItemList = ({ producto }) => {
         {producto.map((prod) => (
           <Box className='item-list'>
             <Item
+              key={prod.id}
               id={prod.id}
               image={prod.image}
               name={prod.name}

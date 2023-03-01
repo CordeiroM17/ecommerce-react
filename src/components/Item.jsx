@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-const Item = ({id, image, name, description, price, stock, category}) => {
+const Item = ({ id, image, name}) => {
   return (
     <Card
         direction={{ base: 'column', sm: 'row' }}

@@ -205,3 +205,53 @@ body {
     margin-top: 50px;
     width: 50%;
 }
+
+/* Form */
+
+.form-container {
+    background-color: #252525;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    background-color: #252525;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.name-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-container {
+    width: 100%;
+}
+
+.form-control {
+    width: 48%;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btn-form {
+    color: black;
+    border: 2px solid white;
+    width: 50%;
+}
+
+#btn-form:hover {
+    background-color: #252525;
+    color: white;
+}
+
+.inputs-container {
+    margin: 20px 0;
+}

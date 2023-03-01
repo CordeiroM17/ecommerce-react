@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Formulario from './Formulario';
+import { useContext } from 'react';
 
 const Cart = () => {
+
   return (
-    <div>En desarrollo</div>
+    <>
+      <Formulario/>
+    </>
+
   )
 }
 
-export default Cart
+export default Cart;
