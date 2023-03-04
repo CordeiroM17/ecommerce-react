@@ -212,7 +212,7 @@ body {
     background-color: #252525;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
 }
 
 .form {
@@ -220,7 +220,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    
 }
 
 .name-container {
@@ -254,4 +254,14 @@ body {
 
 .inputs-container {
     margin: 20px 0;
+}
+
+/* Cart */
+
+.cart-container {
+    background-color: #252525;
+}
+
+table {
+    color: white;
 }

@@ -5,7 +5,8 @@ import {
     Input,
     FormErrorMessage,
     FormHelperText,
-    Button
+    Button,
+    Container
   } from '@chakra-ui/react'
 
 const Formulario = () => {
@@ -17,7 +18,7 @@ const Formulario = () => {
     const isError = input === '';
 
     return (
-        <div className='form-container'>
+        <Container maxW='80%' className='form-container'>
             <form className='form'>
                 <div className='inputs-container name-container'>
                     <div className='form-control'>
@@ -52,7 +53,7 @@ const Formulario = () => {
                     </Button>
                 </div>
             </form>
-        </div>
+        </Container>
     )
 }
 

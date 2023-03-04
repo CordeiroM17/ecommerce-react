@@ -28,7 +28,6 @@ const ItemDetail = ({ producto }) => {
               variant='outline'
               className='carta-detail'
               >
-              
               <CardBody className='card-body-detail'>
                   <Image
                       objectFit='cover'
@@ -46,8 +45,13 @@ const ItemDetail = ({ producto }) => {
                   <Text className='price'>
                     ${prod.price}
                   </Text>
-                  <ItemCount stock={prod.stock}/>
-                  <Button id='btn-add-cart'>Agregar al carrito</Button>
+                  <ItemCount
+                    id={prod.id}
+                    image={prod.image}
+                    name={prod.name}
+                    stock={prod.stock} 
+                    price={prod.price}
+                   />
               </CardBody>
             </Card>
           </Box>

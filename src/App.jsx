@@ -4,11 +4,12 @@ import NavBar from './components/NavBar';
 import Welcome from './components/Welcome';
 import Cart from './components/Cart';
 import ItemDetailsContainer from './components/containers/ItemDetailsContainer'
+import ShoppingCartContext from './context/ShoppingCartContext';
 
 const App = () => {
 
   return (
-    <>
+    <ShoppingCartContext>
       <BrowserRouter>
         <NavBar />
         <Routes >
@@ -19,7 +20,7 @@ const App = () => {
           <Route exact path='/cart' element={<Cart />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </ShoppingCartContext>
   )
 };
 

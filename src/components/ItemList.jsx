@@ -9,9 +9,8 @@ const ItemList = ({ producto }) => {
   return (
     <SimpleGrid columns={{xl:4, lg:3, md:2 ,sm:1}} spacing={10}>
         {producto.map((prod) => (
-          <Box className='item-list'>
+          <Box className='item-list' key={prod.id}>
             <Item
-              key={prod.id}
               id={prod.id}
               image={prod.image}
               name={prod.name}
