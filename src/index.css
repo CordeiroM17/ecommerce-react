@@ -265,3 +265,17 @@ body {
 table {
     color: white;
 }
+
+.datos-cart {
+    font-size: 14px;
+    height: 150px;
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+.total-cart {
+    background-color: white;
+    color: #252525;
+    border-radius: var(--chakra-radii-md);
+    height: 50px;
+}

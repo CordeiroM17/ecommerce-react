@@ -16,12 +16,6 @@ const Formulario = () => {
 
     const { cart, setCart } = useContext(CartContext);
 
-    const [input, setInput] = useState('');
-
-    const handleInputChange = (e) => setInput(e.target.value);
-
-    const isError = input === '';
-
     const loader = () => {
         Swal.fire({
             icon: 'warning',
@@ -36,11 +30,9 @@ const Formulario = () => {
             if (result.isConfirmed) {
               Swal.fire({
                 icon: 'success',
-                title: 'Estamos procesando tu compra',
-                text: 'Esto puede llevar unos segundos',
-                timer: '5000',
-                showConfirmButton: false,
-                timerProgressBar: true
+                title: 'Tu compra fue procesada, te dejamos este codigo para que puedas hacer un seguimiento',
+                text: 'codigo fsdgfsdg',
+                showConfirmButton: true,
               })
               setCart([])
             }
@@ -48,34 +40,28 @@ const Formulario = () => {
     }
 
     return (
-        <Container maxW='80%' className='form-container'>
+        <>
             <form className='form'>
                 <div className='inputs-container name-container'>
                     <div className='form-control'>
                         <FormControl  isRequired>
-                            <FormLabel>First name</FormLabel>
+                            <FormLabel>Nombre/s</FormLabel>
                             <Input placeholder='First name' />
                         </FormControl>
                     </div>
                     <div className='form-control'>
                         <FormControl isRequired>
-                            <FormLabel>Last name</FormLabel>
+                            <FormLabel>Apellido/s</FormLabel>
                             <Input placeholder='Last name' />
                         </FormControl>
                     </div>
                 </div>
                 <div className='inputs-container email-container'>
-                    <FormControl isInvalid={isError} isRequired>
-                        <FormLabel>Email</FormLabel>
-                        <Input type='email' value={input} onChange={handleInputChange} />
-                        {!isError ? (
-                            <FormHelperText>
-                            Enter the email you'd like to receive the newsletter on.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage>Email is required.</FormErrorMessage>
-                        )}
-                    </FormControl>
+                <FormControl>
+                    <FormLabel>Correo electronico</FormLabel>
+                        <Input type='email' />  
+                    <FormHelperText>Ingrese su correo electronico</FormHelperText>
+                </FormControl>
                 </div>
                 <div className='inputs-container form-btn'>
                     <Button type='sumbit' id='btn-form' onClick={() => loader()}>
@@ -83,7 +69,7 @@ const Formulario = () => {
                     </Button>
                 </div>
             </form>
-        </Container>
+        </>
     )
 }
 

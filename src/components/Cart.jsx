@@ -7,7 +7,11 @@ import {
   useToast,
   Button,
   Text,
-  Flex
+  SimpleGrid,
+  Stack,
+  Box,
+  Flex,
+  Divider
 } from '@chakra-ui/react';
 import { CartContext } from '../context/ShoppingCartContext';
 import { useContext } from 'react';
@@ -55,54 +59,60 @@ const Cart = () => {
 
   return (
     <>
-      <Container className='cart-container' maxW='auto' p={[0, 20]}>
-      <VStack
-          divider={<StackDivider borderColor='gray.200' />}
-          spacing={4}
-          align='stretch'
-          >
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {cart.map((item) => {
-                return (
-                  <tr key={item.id}>
-                    <th>
-                      <Image
-                        boxSize='100px'
-                        objectFit='cover'
-                        src={item.image}
-                        alt={item.name}
-                      />
-                    </th>
-                    <th>{item.name}</th>
-                    <th>{item.quantity}</th>
-                    <th>${item.price}</th>
-                    <th>
-                      <CloseButton size='lg' background='red' onClick={() => deleteItemCart(item.id)}/>
-                    </th>
+      <Container className='cart-container' maxW='auto' p='20px'>
+        <SimpleGrid columns={{xl:2, lg:2, md:1, sm:1}}>
+          <Container maxW='auto' mb={{md:'50px'}}>
+            <VStack
+              divider={<StackDivider borderColor='gray.200' />}
+              spacing={4}
+              align='stretch'
+              >
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th></th>
                   </tr>
-                );
-              })}
-              <tr>
-                <th></th>
-                <th></th>
-                <th>Precio total: </th>
-                <th>${totalPrice()}</th>
-                <th></th>
-              </tr>
-            </tbody>
-          </table>
-        </VStack>
-        <Formulario/>
+                </thead>
+                <tbody>
+                  {cart.map((item) => {
+                    return (
+                      <tr className='datos-cart' key={item.id}>
+                        <th>
+                          <Image
+                            boxSize='100px'
+                            objectFit='cover'
+                            src={item.image}
+                            alt={item.name}
+                          />
+                        </th>
+                        <th>{item.name}</th>
+                        <th>{item.quantity}</th>
+                        <th>${item.price}</th>
+                        <th>
+                          <CloseButton size='lg' background='red' onClick={() => deleteItemCart(item.id)}/>
+                        </th>
+                      </tr>
+                    );
+                  })}
+                    <tr className='total-cart'>
+                      <th></th>
+                      <th></th>
+                      <th>Total:</th>
+                      <th>${totalPrice()}</th>
+                      <th></th>
+                    </tr>
+                </tbody>
+              </table>
+            </VStack>
+          </Container>
+          <Container background='#252525' maxW='auto' borderRadius='var(--chakra-radii-md)'>
+            <Formulario/>
+          </Container>
+        </SimpleGrid>
       </Container>
     </>
 
