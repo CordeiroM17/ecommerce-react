@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     FormControl,
     FormLabel,
@@ -6,16 +6,46 @@ import {
     FormErrorMessage,
     FormHelperText,
     Button,
-    Container
+    Container,
   } from '@chakra-ui/react'
+import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { CartContext } from '../context/ShoppingCartContext';
 
 const Formulario = () => {
+
+    const { cart, setCart } = useContext(CartContext);
 
     const [input, setInput] = useState('');
 
     const handleInputChange = (e) => setInput(e.target.value);
 
     const isError = input === '';
+
+    const loader = () => {
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Estas seguro de finalizar tu compra?',
+            text: 'Si aceptas no habra vuelta atras',
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Estamos procesando tu compra',
+                text: 'Esto puede llevar unos segundos',
+                timer: '5000',
+                showConfirmButton: false,
+                timerProgressBar: true
+              })
+              setCart([])
+            }
+        })
+    }
 
     return (
         <Container maxW='80%' className='form-container'>
@@ -48,7 +78,7 @@ const Formulario = () => {
                     </FormControl>
                 </div>
                 <div className='inputs-container form-btn'>
-                    <Button id='btn-form'>
+                    <Button type='sumbit' id='btn-form' onClick={() => loader()}>
                         <span>Enviar Datos</span>
                     </Button>
                 </div>

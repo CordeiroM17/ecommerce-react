@@ -4,15 +4,25 @@ import {
   VStack,
   StackDivider,
   Image,
-  useToast
+  useToast,
+  Button,
+  Text,
+  Flex
 } from '@chakra-ui/react';
-import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
+import { useContext } from 'react';
 import Formulario from './Formulario';
+import { Link } from 'react-router-dom';
+
 
 const Cart = () => {
+
   const toast = useToast();
-  const {cart, setCart,} = useContext(CartContext)
+  const {cart, setCart} = useContext(CartContext)
+
+  const totalPrice = () => {
+    return cart.reduce((acc, act) => acc + act.quantity * act.price, 0);
+  }
 
   const deleteItemCart = (id) => {
     const isInCart = cart.filter((item) => item.id !== id);
@@ -27,10 +37,26 @@ const Cart = () => {
     }
   }
 
+  if(cart.length === 0) {
+    return (
+      <>
+        <Container className='cart-container' maxW='auto' p={[0, 20]}>
+          <Flex align='center' justify='center' direction='column'>
+            <Text  p='50' color='white'>No hay productos agregados al carrito</Text>
+            <Link to={`/catalogo`}>
+              <Button>Volver a comprar</Button>
+            </Link>
+          </Flex>
+        </Container>
+      </>
+    )
+      
+  }
+
   return (
     <>
       <Container className='cart-container' maxW='auto' p={[0, 20]}>
-        <VStack
+      <VStack
           divider={<StackDivider borderColor='gray.200' />}
           spacing={4}
           align='stretch'
@@ -69,13 +95,12 @@ const Cart = () => {
               <tr>
                 <th></th>
                 <th></th>
-                <th>Precio total:</th>
-                <th>100</th>
+                <th>Precio total: </th>
+                <th>${totalPrice()}</th>
                 <th></th>
               </tr>
             </tbody>
           </table>
-          
         </VStack>
         <Formulario/>
       </Container>
@@ -83,17 +108,5 @@ const Cart = () => {
 
   )
 }
-
-{/* <Box p=' 0 50px' h='150px' bg='yellow.200' display="flex" alignItems='center' justifyContent="space-between">
-            <Image
-              boxSize='150'
-              objectFit='cover'
-              src='https://bit.ly/dan-abramov'
-              alt='Dan Abramov'
-            />
-            <Text fontSize='xl'> Nombre Producto </Text>
-            <Text fontSize='xl'> 1 </Text>
-            <Text fontSize='xl'> $10000 </Text>
-          </Box> */}
 
 export default Cart;

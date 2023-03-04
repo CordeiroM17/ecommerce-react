@@ -56,6 +56,12 @@ const ItemCount = ({ id, image, name, stock, price }) => {
                     return [...currItems, { id, quantity: contador, price, name, image }];
                 }
             });
+            Swal.fire({
+                icon: 'success',
+                title: 'El producto se agrego al carrito con exito',
+                showConfirmButton: false,
+                timer: 1500
+              })
         }
     };
 
