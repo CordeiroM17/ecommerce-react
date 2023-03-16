@@ -81,7 +81,7 @@ const ItemCount = ({ id, image, name, stock, price }) => {
                 </Button>
             </div>
         </div>
-        <Button onClick={() => addToCart()} id='btn-add-cart'>Agregar al carrito</Button>
+        <Button mt='10px' onClick={() => addToCart()} id='btn-add-cart'>Agregar al carrito</Button>
     </>
   )
 }

@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail';
-import Data from '../../data.json';
+import { getFirestore, collection, getDocs, doc } from "firebase/firestore";
+import { useParams } from 'react-router-dom';
 
 const ItemDetailsContainer = () => {
 
   const { id } = useParams();
 
-  const [prods, setProds] = useState([]);
+  const [prods, setProds] = useState([])
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(Data);
-        const data = await response.json();
-        setProds(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
+    const db = getFirestore();
+    const prodsCollection = collection(db, "productos");
+    getDocs(prodsCollection).then((querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => ({...doc.data(), id: querySnapshot.id}));
+      setProds(data);
+    });
   }, []);
 
-  const prodFilter = Data.filter((prod) => prod.id == id);
+  const prodFilter = prods.filter((prod) => prod.id == id);
 
   return (
     <div className="item-list-container">
-      <ItemDetail producto={prodFilter}/>
+      <ItemDetail products={prodFilter}/>
     </div>
   )
 }
