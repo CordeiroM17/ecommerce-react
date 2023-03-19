@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { 
     Button,
     useToast,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
 
@@ -31,7 +31,7 @@ const ItemCount = ({ id, image, name, stock, price }) => {
         }
     };
 
-    const { cart, setCart, totalPrice, setTotalPrice } = useContext(CartContext);
+    const { cart, setCart } = useContext(CartContext);
 
     const addToCart = () => {
         if (contador == 0) {

@@ -16,7 +16,6 @@ const Item = ({ id, image, name}) => {
         variant='outline'
         className='carta'
         >
-        
         <Stack className='card-body-container'>
             <CardBody>
                 <Image

@@ -8,16 +8,12 @@ import {
   Button,
   Text,
   SimpleGrid,
-  Stack,
-  Box,
-  Flex,
-  Divider
+  Flex
 } from '@chakra-ui/react';
 import { CartContext } from '../context/ShoppingCartContext';
 import { useContext } from 'react';
-import Formulario from './Formulario';
 import { Link } from 'react-router-dom';
-
+import Formulario from './Formulario';
 
 const Cart = () => {
 
@@ -115,7 +111,6 @@ const Cart = () => {
         </SimpleGrid>
       </Container>
     </>
-
   )
 }
 

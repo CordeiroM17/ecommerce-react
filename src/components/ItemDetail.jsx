@@ -8,7 +8,6 @@ import {
   SimpleGrid,
   Text,
   Box,
-  Highlight,
   Flex
 } from '@chakra-ui/react';
 import { useParams } from "react-router-dom";

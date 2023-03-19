@@ -9,12 +9,12 @@ import {
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
-import { collection, getFirestore, addDoc } from 'firebase/firestore';
+import { collection, getFirestore, addDoc, doc } from 'firebase/firestore';
 
 const Formulario = () => {
 
     const { cart, setCart } = useContext(CartContext);
-    const [orderId, setOrderId] = useState()
+    const [orderId, setOrderId] = useState(null)
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [apellido, setApellido] = useState("")
@@ -27,14 +27,14 @@ const Formulario = () => {
         name,
         apellido,
         email,
+        cart
     }
     
     const handleSumbit = (e) => {
         e.preventDefault();
-        addDoc(orderCollection, order).then(({id}) => setOrderId(id));
+        addDoc(orderCollection, order).then((id) => setOrderId(id));
         loader()
-    };
-
+    }
 
     const loader = () => {
         Swal.fire({
@@ -54,6 +54,7 @@ const Formulario = () => {
                 text: `Tu codigo de segumiento es: ${orderId}`,
                 showConfirmButton: true,
               })
+              /* setCart([]) */ 
             }
         })
     }

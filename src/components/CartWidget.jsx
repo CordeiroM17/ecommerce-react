@@ -8,7 +8,7 @@ const CartWidget = () => {
 
   const quantity = cart.reduce((acc, curr) => {
     return acc + curr.quantity;
-  }, 0)
+  }, 0);
 
   return (
     <Button id='btn-cart'>
