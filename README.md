@@ -8,19 +8,19 @@ El funcionamiento es sencillo, podes observar un catalogo de disposivos en el qu
 
 ---
 
-## Pasos a seguir
+Una vez se agrega un producto al carrito se muestra los detalles de la compra y es necesario rellenar un formulario, que al estar completo al cliente se le dara un codigo de seguimiento
 
-1. [ x ] Crear un componente `NavBar`
+---
 
-2. [ x ] Dentro de `NavBar` colocar un logo, un menu desplegable y un componente llamado `CartWidget`
+## En este proyecto se implemento:
 
-3. [ x ] Crear un `ItemCount` que cumplira con la funcion de elegir la cantidad de elementos que queremos agregar al carrito. Cuenta con un boton sumar, restar y resetar
+1. React Vite
 
-4. [ x ] Crear un componente contenedor llamado `ItemListcontainer` 
+2. Chakra UI
 
-5. [ x ] Dentro de el, uno llamado `ItemList` que a su vez haga un `map` de cada `Item` colocado en `data.json`
+3. React Router DOM
 
-6. [ x ] Agregar navegacion basica en cada uno de los botones, menus y logos
+4. Firebase
 
 ---
 ## Gif Funcionamiento del e-commerce

@@ -32,9 +32,17 @@ const Formulario = () => {
     
     const handleSumbit = (e) => {
         e.preventDefault();
-        addDoc(orderCollection, order).then((id) => setOrderId(id));
-        loader()
+        addDoc(orderCollection, order)
+            .then(({id}) => {
+                setOrderId(id);
+        });
     }
+
+    useEffect(() => {
+        if (orderId !== null) {
+            loader();
+        }
+    }, [orderId]);
 
     const loader = () => {
         Swal.fire({
@@ -54,7 +62,7 @@ const Formulario = () => {
                 text: `Tu codigo de segumiento es: ${orderId}`,
                 showConfirmButton: true,
               })
-              /* setCart([]) */ 
+              setCart([]) 
             }
         })
     }
